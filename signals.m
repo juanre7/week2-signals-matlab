@@ -1,5 +1,5 @@
 %% Continuous-time basic signals (plot + labels)
-% Author: You
+% Author: Juan Rodriguez Esteban
 clear; close all; clc;
 
 % Common time axis (dense grid to emulate continuous time)
@@ -57,9 +57,7 @@ xlabel('t (s)'); ylabel('Amplitud');
 title('Signum Signal sgn(t)');
 ylim([-1.2, 1.2]);
 
-%% 6) Sinc Signal (definición normalizada)
-% Definición normalizada: sinc(t) = sin(pi*t)/(pi*t), con sinc(0)=1
-% Implementamos la fórmula explícitamente para evitar depender de 'sinc'.
+%% 6) Sinc Signal
 eps0 = 1e-12;                          % tolerancia para t≈0
 y_sinc = ones(size(t));                % valor en t=0 -> 1
 idx = abs(t) > eps0;                   % evita 0/0
@@ -70,4 +68,5 @@ plot(t, y_sinc, 'LineWidth', 1.5); grid on;
 xlabel('t (s)'); ylabel('Amplitud');
 title('Sinc normalizada \mathrm{sinc}(t)=\sin(\pi t)/(\pi t)');
 ylim([min(y_sinc)-0.1, 1.2]);
+
 
